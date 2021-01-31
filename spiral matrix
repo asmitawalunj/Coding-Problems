@@ -1,0 +1,65 @@
+
+public class day5 {
+
+	private static int spiralPrint(int m,int n,int a[][],int ele)
+	{
+		int k=0;
+		int l=0;
+		int[] temp=new int[m*n];
+		int j=0;
+		while(k < m && l < n ){
+			for(int i=l;i<n;i++)
+			{
+				//System.out.println(a[k][i]);
+				temp[j]=a[k][i];
+				j++;
+			}
+			k++;
+			
+			for(int i=k;i<m;i++)
+			{
+			//	System.out.println(a[i][n-1]);
+				temp[j]=a[i][n-1];
+				j++;
+			}
+			n--;
+			
+			if(k<m){
+			for(int i=n-1;i>=l;i--)
+			{
+				//System.out.println(a[m-1][i]);
+				temp[j]=a[m-1][i];
+				j++;
+			}
+			m--;
+			}
+			
+			
+			if(l<n){
+			for(int i=m-1;i>=k;i--)
+			{
+				//System.out.println(a[i][l]);
+				temp[j]=a[i][l];
+				j++;
+			}
+			l++;
+			}
+			
+		}
+		
+		return temp[ele-1];
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int m = 3;
+        int n = 6;
+        int k=9;
+        int a[][] = { { 1, 2, 3, 4, 5, 6 },
+                      { 7, 8, 9, 10, 11, 12 },
+                      { 13, 14, 15, 16, 17, 18 } };
+        
+        // Function Call
+         System.out.println(spiralPrint(m, n, a,k));
+	}
+
+}
