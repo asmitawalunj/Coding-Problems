@@ -1,0 +1,23 @@
+class Solution {
+    public int maximum(int sum,int max)
+    {
+        if(max > sum)
+            return max;
+        else
+            return sum;
+    }
+    public int maxSubArray(int[] nums) {
+        int sum=0;
+        int max=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            sum=0;
+            for(int j= i ;j<nums.length;j++)
+            {
+                sum+=nums[j];
+                max=maximum(sum,max);
+            }
+        }
+        return max;
+    }
+}
